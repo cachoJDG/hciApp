@@ -34,8 +34,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ShowTwoLabels(){
     Row {
-        Text(text = "h")
-        Text(text = "W")
+        Text(text = "A")
+        Text(text = "B")
     }
 
 }
