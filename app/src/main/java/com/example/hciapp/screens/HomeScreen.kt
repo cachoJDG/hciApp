@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import com.example.hciapp.components.BalloonNavigationBar
 import com.example.hciapp.components.BalloonTopBar
 import com.example.hciapp.components.ContentCard
+import com.example.hciapp.components.LoginForm
 import com.example.hciapp.ui.theme.HciAppTheme
 
 
@@ -30,7 +31,9 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 ContentCard(
                     title = "Welcome to Balloon",
                 ) {
-                    Text("This is a simple app to demonstrate the use of Jetpack Compose")
+                    LoginForm { email, password ->
+                        // Handle login
+                    }
                 }
             }
         }
