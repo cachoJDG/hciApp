@@ -4,4 +4,6 @@
     <string name="home">casa</string>
     <string name="cards">tarjetas</string>
     <string name="HeaderTitle">GloboApp</string>
+    <string name="qr">buscar</string>
+    <string name="profile">perfil</string>
 </resources>

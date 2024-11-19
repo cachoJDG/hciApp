@@ -3,4 +3,6 @@
     <string name="home">home</string>
     <string name="cards">cards</string>
     <string name="HeaderTitle">BalloonApp</string>
+    <string name="qr">Search</string>
+    <string name="profile">Profile</string>
 </resources>
