@@ -1,6 +1,8 @@
 package com.example.hciapp
 
+import android.R
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffold
@@ -12,6 +14,7 @@ import com.example.hciapp.ui.theme.HciAppTheme
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -31,14 +34,17 @@ fun BalloonWalletApp()
         {
             if (windowSizeClass.windowWidthSizeClass == WindowWidthSizeClass.MEDIUM) {
                 NavigationSuiteType.NavigationRail
+
+
             }
             else {
-                NavigationSuiteScaffoldDefaults.calculateFromAdaptiveInfo(adaptiveInfo)
+                NavigationSuiteType.NavigationBar
             }
 
         }
         var currentDestination by rememberSaveable { mutableStateOf(AppDestinations.HOME) }
         NavigationSuiteScaffold(
+            containerColor = Color.Blue,
             navigationSuiteItems = {
                 AppDestinations.entries.forEach{
                     item(
@@ -55,6 +61,7 @@ fun BalloonWalletApp()
                     )
                 }
             },
+            contentColor = Color.Transparent,
             layoutType = NavigationSuiteScaffoldDefaults.calculateFromAdaptiveInfo(adaptiveInfo)
         ){
             when(currentDestination)
