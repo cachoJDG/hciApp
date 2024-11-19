@@ -6,17 +6,14 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.hciapp.components.BalloonNavigationBar
-import com.example.hciapp.components.BalloonTopBar
 import com.example.hciapp.ui.theme.HciAppTheme
 
-
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier) {
+fun CardsScreen(modifier: Modifier = Modifier) {
     HciAppTheme {
         Column(modifier.verticalScroll(rememberScrollState()))
         {
-            Text("Home")
+            Text("Cards")
         }
     }
 }

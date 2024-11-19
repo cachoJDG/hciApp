@@ -12,10 +12,14 @@ import com.example.hciapp.ui.theme.HciAppTheme
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.window.core.layout.WindowWidthSizeClass
 
+
 import com.example.hciapp.navigation.AppDestinations
+import com.example.hciapp.screens.CardsScreen
 import com.example.hciapp.screens.HomeScreen
 
 @Composable
@@ -40,7 +44,7 @@ fun BalloonWalletApp()
                     item(
                         icon = {
                             Icon(
-                                it.icon,
+                                painterResource( it.icon),
                                 contentDescription = stringResource(it.contentDescription)
                             )
                         },
@@ -56,9 +60,18 @@ fun BalloonWalletApp()
             when(currentDestination)
             {
                 AppDestinations.HOME -> HomeScreen()
+                AppDestinations.CARDS -> CardsScreen()
             }
 
         }
     }
 }
+
+@Preview(device = "spec:width=411dp,height=891dp")
+@Preview(device = "spec:width=800dp,height=1280dp,dpi=240")
+@Composable
+fun BalloonPreview() {
+    BalloonWalletApp()
+}
+
 
