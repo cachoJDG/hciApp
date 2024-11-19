@@ -19,7 +19,7 @@ import androidx.window.core.layout.WindowWidthSizeClass
 
 
 import com.example.hciapp.navigation.AppDestinations
-import com.example.hciapp.screens.CardsScreen
+import com.example.hciapp.screens.QrScreen
 import com.example.hciapp.screens.HomeScreen
 
 @Composable
@@ -60,7 +60,7 @@ fun BalloonWalletApp()
             when(currentDestination)
             {
                 AppDestinations.HOME -> HomeScreen()
-                AppDestinations.CARDS -> CardsScreen()
+                AppDestinations.CARDS -> QrScreen()
             }
 
         }

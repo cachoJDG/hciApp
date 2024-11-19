@@ -19,7 +19,7 @@ enum class AppDestinations(
     @StringRes val contentDescription: Int
     )
 {
-    HOME(label = R.string.home, icon = R.drawable.qr_code, contentDescription = R.string.home),
-    CARDS(label = R.string.cards, icon = R.drawable.baseline_shop_2_24, contentDescription = R.string.cards),
+    HOME(label = R.string.home, icon = R.drawable.home, contentDescription = R.string.home),
+    CARDS(label = R.string.cards, icon = R.drawable.qr_code, contentDescription = R.string.cards),
    // CARDS(label = R.string.cards, icon = Icons.Default.Call, contentDescription = R.string.cards),
 }
