@@ -2,18 +2,19 @@ package com.example.hciapp
 
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import com.example.hciapp.ui.theme.HciAppTheme
-import androidx.compose.material3.adaptive.*
+import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffold
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffoldDefaults
-
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteType
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import com.example.hciapp.ui.theme.HciAppTheme
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.res.stringResource
-
 import androidx.window.core.layout.WindowWidthSizeClass
+
 import com.example.hciapp.navigation.AppDestinations
 import com.example.hciapp.screens.HomeScreen
 

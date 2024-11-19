@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.example.hciapp"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.hciapp"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -49,15 +49,8 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation("androidx.compose.material3.adaptive:adaptive:1.1.0-alpha07")
-    implementation ("androidx.compose.material3.adaptive:adaptive-layout:1.1.0-alpha07")
-    implementation ("androidx.compose.material3.adaptive:adaptive-navigation:1.1.0-alpha07")
-    implementation ("androidx.compose.material3.adaptive:adaptive-navigation-suite-android:1.1.0-alpha07")
-    implementation ("androidx.compose.material3:material3-adaptive-navigation-suite")
-    implementation ("androidx.navigation:navigation-compose:2.8.4")
-    implementation("androidx.compose.material3:material3:1.3.1")
-    implementation("androidx.compose.material3:material3-window-size-class:1.3.1")
-    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.4.0-alpha04")
+    implementation(libs.androidx.adaptive.android)
+    implementation(libs.androidx.material3.adaptive.navigation.suite.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
