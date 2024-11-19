@@ -12,6 +12,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.hciapp.components.BalloonTopBar
+import com.example.hciapp.screens.BallonApp
+import com.example.hciapp.screens.HomeScreen
 import com.example.hciapp.ui.theme.HciAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -60,6 +63,8 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     HciAppTheme {
-        Greeting("Android")
+        BallonApp()
+//        HomeScreen()
+        //BalloonTopBar()
     }
 }
