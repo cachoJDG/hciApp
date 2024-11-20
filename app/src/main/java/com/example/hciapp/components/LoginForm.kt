@@ -76,8 +76,8 @@ fun LoginForm(onLogin: (String, String) -> Unit) {
             onClick = { onLogin(email, password) },
             modifier = Modifier.fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xFF9503A7),
-                //containerColor = MaterialTheme.colorScheme.primary, NOT WORKING AND DO NOT KNOW WHY
+                //containerColor = Color(0xFF9503A7),
+                containerColor = MaterialTheme.colorScheme.primary,
                 contentColor = Color.White
             )
         ) {
