@@ -1,6 +1,5 @@
 package com.example.hciapp.ui.theme
 
-import android.app.Activity
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
@@ -9,14 +8,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
+    primary = Color(0xFF9503A7), // Change this to your desired color
     secondary = PurpleGrey80,
     tertiary = Pink80,
-    background = Color(0xFFEA68EF),
+    background = Color(0xFFE795EA),
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
+    primary = Color(0xFF9503A7), // Change this to your desired color
     secondary = PurpleGrey40,
     tertiary = Pink40,
     background = Color(0xFF000000),

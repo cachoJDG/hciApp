@@ -12,6 +12,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -75,8 +76,9 @@ fun LoginForm(onLogin: (String, String) -> Unit) {
             onClick = { onLogin(email, password) },
             modifier = Modifier.fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xFF9503A7), // Change this to your desired color
-                contentColor = Color.White // Change this to your desired text color
+                containerColor = Color(0xFF9503A7),
+                //containerColor = MaterialTheme.colorScheme.primary, NOT WORKING AND DO NOT KNOW WHY
+                contentColor = Color.White
             )
         ) {
             Text(text = stringResource(R.string.login))        }

@@ -1,10 +1,9 @@
 package com.example.hciapp.components
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -13,9 +12,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.hciapp.R
@@ -25,22 +26,69 @@ fun Balance() {
     var balance by remember { mutableStateOf(0) }
     var showBalance by remember { mutableStateOf(false) }
 
-    ContentCard(title = stringResource(R.string.balance), description = "Your current balance") {
-        Row() {
-            Text(text = if (showBalance) balance.toString() else "****")
-            Spacer(modifier = Modifier.width(8.dp))
-            IconButton(
-                onClick = { showBalance = !showBalance },
-                modifier = Modifier.size(16.dp)
+    Card(modifier = Modifier
+        .fillMaxWidth()
+        .padding(16.dp)
+    ) {
+        Box(modifier = Modifier.fillMaxWidth()) {
+            Column(
+                modifier = Modifier.padding(16.dp)
             ) {
-                val icon = if (showBalance) painterResource(id = R.drawable.closedeyes) else painterResource(id = R.drawable.eyecloseup)
-                Icon(painter = icon, contentDescription = if (showBalance) "Hide balance" else "Show balance")
+                Row(
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(text = if (showBalance) "$$balance" else "****")
+                    Spacer(modifier = Modifier.width(8.dp))
+                    IconButton(
+                        onClick = { showBalance = !showBalance },
+                        modifier = Modifier.size(24.dp)
+                    ) {
+                        val icon = if (showBalance) painterResource(id = R.drawable.closedeyes) else painterResource(id = R.drawable.eyecloseup)
+                        Icon(painter = icon, contentDescription = if (showBalance) "Hide balance" else "Show balance")
+                    }
+                }
+                Spacer(modifier = Modifier.height(16.dp))
+                Row(
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(40.dp)
+                            .background(Color(0xFF9503A7), shape = CircleShape)
+                    ) {
+                        IconButton(
+                            onClick = { balance += 1 },
+                            modifier = Modifier.size(24.dp).align(Alignment.Center)
+                        ) {
+                            val icon = painterResource(id = R.drawable.dinero)
+                            Icon(painter = icon, contentDescription = "Increase balance")
+                        }
+                    }
+                    Spacer(modifier = Modifier.width(16.dp))
+                    Box(
+                        modifier = Modifier
+                            .size(40.dp)
+                            .background(Color(0xFF9503A7), shape = CircleShape)
+                    ) {
+                        IconButton(
+                            onClick = { balance -= 1 },
+                            modifier = Modifier.size(24.dp).align(Alignment.Center)
+                        ) {
+                            val icon = painterResource(id = R.drawable.pago)
+                            Icon(painter = icon, contentDescription = "Decrease balance")
+                        }
+                    }
+                }
+            }
+            Column(modifier = Modifier.align(Alignment.TopEnd).padding(16.dp)) {
+                Text(text= "See my movements", textDecoration = TextDecoration.Underline, color = Color(0xFF9503A7))
             }
         }
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun BalancePreview() {
     Balance()
