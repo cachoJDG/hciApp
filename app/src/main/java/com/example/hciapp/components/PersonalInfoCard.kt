@@ -1,5 +1,6 @@
 package com.example.hciapp.components
 
+import java.text.SimpleDateFormat
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -7,13 +8,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import java.text.DateFormat
+
+import java.util.Date
+import java.util.Locale
 
 @Composable
 fun UserProfileConfig(
     name: String,
     surname: String,
     email: String,
-    age: Int,
+    birthDate: Date,
     alias: String,
     language: String,
     cvu: String,
@@ -23,7 +28,7 @@ fun UserProfileConfig(
     var editableName by remember { mutableStateOf(name) }
     var editableSurname by remember { mutableStateOf(surname) }
     var editableEmail by remember { mutableStateOf(email) }
-    var editableAge by remember { mutableStateOf(age.toString()) }
+    var editableBirthDate by remember { mutableStateOf(birthDate) }
     var editableAlias by remember { mutableStateOf(alias) }
     var editableLanguage by remember { mutableStateOf(language) }
     var editableCvu by remember { mutableStateOf(cvu) }
@@ -42,7 +47,7 @@ fun UserProfileConfig(
                 Spacer(modifier = Modifier.height(8.dp))
                 TextField(value = editableEmail, onValueChange = { editableEmail = it }, label = { Text("Email") })
                 Spacer(modifier = Modifier.height(8.dp))
-                TextField(value = editableAge, onValueChange = { editableAge = it }, label = { Text("Age") })
+                TextField(value = SimpleDateFormat("dd/mm/yyyy").format(editableBirthDate).toString(), onValueChange = { editableBirthDate = Date(Date.parse(it)) }, label = { Text("BirthDate") })
                 Spacer(modifier = Modifier.height(8.dp))
                 TextField(value = editableAlias, onValueChange = { editableAlias = it }, label = { Text("Alias") })
                 Spacer(modifier = Modifier.height(8.dp))
@@ -56,7 +61,7 @@ fun UserProfileConfig(
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(text = "Email: $editableEmail")
                 Spacer(modifier = Modifier.height(8.dp))
-                Text(text = "Age: $editableAge")
+                Text(text = "BirthDate: ${SimpleDateFormat("dd/MM/yyyy").format(editableBirthDate)}")
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(text = "Alias: $editableAlias")
                 Spacer(modifier = Modifier.height(8.dp))
@@ -65,7 +70,10 @@ fun UserProfileConfig(
                 Text(text = "CVU: $editableCvu")
             }
             Spacer(modifier = Modifier.height(16.dp))
-            Button(onClick = { isEditable = !isEditable }) {
+            Button(onClick = {
+                isEditable = !isEditable
+            }
+            ) {
                 Text(text = if (isEditable) "Save" else "Edit")
             }
         }
@@ -79,7 +87,7 @@ fun UserProfileConfigPreview() {
         name = "John",
         surname = "Doe",
         email = "john.doe@example.com",
-        age = 30,
+        birthDate = Date(),
         alias = "johnd",
         language = "English",
         cvu = "1234567890"
