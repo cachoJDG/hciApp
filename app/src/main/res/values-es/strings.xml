@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">hciApp</string>
+    <string name="app_name">Balloon Wallet</string>
     <string name="home">casa</string>
     <string name="cards">tarjetas</string>
     <string name="HeaderTitle">GloboApp</string>
     <string name="qr">buscar</string>
     <string name="profile">perfil</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="email">Correo electrónico</string>
+    <string name="password">Contraseña</string>
 </resources>

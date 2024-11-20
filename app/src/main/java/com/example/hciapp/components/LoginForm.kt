@@ -23,6 +23,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -45,14 +46,14 @@ fun LoginForm(onLogin: (String, String) -> Unit) {
         TextField(
             value = email,
             onValueChange = { email = it },
-            label = { Text("Email") },
+            label = { Text(text = stringResource(R.string.email )) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(modifier = Modifier.height(16.dp))
         TextField(
             value = password,
             onValueChange = { password = it },
-            label = { Text("Password") },
+            label = { Text(text = stringResource(R.string.password)) },
             visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
             modifier = Modifier.fillMaxWidth(),
             trailingIcon = {
@@ -74,12 +75,11 @@ fun LoginForm(onLogin: (String, String) -> Unit) {
             onClick = { onLogin(email, password) },
             modifier = Modifier.fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xFF9705AB), // Change this to your desired color
+                containerColor = Color(0xFF9503A7), // Change this to your desired color
                 contentColor = Color.White // Change this to your desired text color
             )
         ) {
-            Text("Login")
-        }
+            Text(text = stringResource(R.string.login))        }
     }
 }
 
