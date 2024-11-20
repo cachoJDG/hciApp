@@ -1,6 +1,7 @@
 package com.example.hciapp.screens
 
 import android.annotation.SuppressLint
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Scaffold
@@ -9,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -22,16 +24,14 @@ import com.example.hciapp.ui.theme.Purple80
 fun LoginScreen(onLogin: (String, String) -> Unit) {
     Box(
         modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight()
-            .padding(16.dp)
+            .fillMaxSize()
             .background(color = Color(0xFFE1BEE7))
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .align(Alignment.TopCenter)
                 .padding(16.dp)
+                .align(Alignment.TopCenter)
         ) {
             Text(
                 text = stringResource(R.string.app_name),
@@ -39,14 +39,24 @@ fun LoginScreen(onLogin: (String, String) -> Unit) {
                 fontWeight = FontWeight.Bold,
                 color = Color(0xFF9503A7), // Purple color
                 modifier = Modifier
-                    .padding(16.dp)
-                    .align(Alignment.CenterHorizontally)            )
+                    .padding(vertical = 40.dp)
+                    .align(Alignment.CenterHorizontally)
+            )
         }
+        Image(
+            painter = painterResource(id = R.drawable.balloon),
+            contentDescription = "Background",
+            modifier = Modifier
+                .size(200.dp)
+                .align(Alignment.Center)
+                .offset(y = (-50).dp)
+        )
 
         Column(
             modifier = Modifier
+                .fillMaxWidth()
                 .align(Alignment.BottomCenter)
-                .background(color = Color(0xFFFFFFFF))
+                .background(color = Color.White)
                 .padding(16.dp)
         ) {
             LoginForm(onLogin = onLogin)
