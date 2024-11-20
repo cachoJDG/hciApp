@@ -1,8 +1,6 @@
 package com.example.hciapp
 
-import android.R
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffold
@@ -23,7 +21,7 @@ import androidx.window.core.layout.WindowWidthSizeClass
 
 import com.example.hciapp.navigation.AppDestinations
 import com.example.hciapp.screens.QrScreen
-import com.example.hciapp.screens.HomeScreen
+import com.example.hciapp.screens.home.HomeScreen
 
 @Composable
 fun BalloonWalletApp()
@@ -34,8 +32,6 @@ fun BalloonWalletApp()
         {
             if (windowSizeClass.windowWidthSizeClass == WindowWidthSizeClass.MEDIUM) {
                 NavigationSuiteType.NavigationRail
-
-
             }
             else {
                 NavigationSuiteType.NavigationBar
