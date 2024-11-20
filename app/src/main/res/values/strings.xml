@@ -10,4 +10,6 @@
     <string name="password">Password</string>
     <string name="register">Register</string>
     <string name="balance">Balance</string>
+    <string name="increase_balance">Deposit</string>
+    <string name="decrease_balance">Transfer</string>
 </resources>

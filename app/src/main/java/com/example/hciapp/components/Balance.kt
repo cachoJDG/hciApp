@@ -57,35 +57,18 @@ fun Balance() {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
 
-                    IconButton(
-                        onClick = { /* Action to increase balance */ },
-                        modifier = Modifier
-                            .size(48.dp) // Adjust the size for the button's diameter
-                            .clip(CircleShape)
-                            .background(MaterialTheme.colorScheme.primary) // Set the background color
-                    ) {
-                        Icon(
-                            modifier = Modifier.size(40.dp),
-                            painter = painterResource(id = R.drawable.dinero),
-                            contentDescription = "Increase balance",
-                             // Set the icon color
-                        )
-                    }
+                    ButtonTile(
+                        onClick = { balance += 1 },
+                        text = R.string.increase_balance,
+                        icon = R.drawable.dinero
+                    )
 
                     Spacer(modifier = Modifier.width(16.dp))
-                    Box(
-                        modifier = Modifier
-                            .size(40.dp)
-                            .background(Color(0xFF9503A7), shape = CircleShape)
-                    ) {
-                        IconButton(
-                            onClick = { balance -= 1 },
-                            modifier = Modifier.size(24.dp).align(Alignment.Center)
-                        ) {
-                            val icon = painterResource(id = R.drawable.pago)
-                            Icon(painter = icon, contentDescription = "Decrease balance")
-                        }
-                    }
+                   ButtonTile(
+                        onClick = { balance -= 1 },
+                        text = R.string.decrease_balance,
+                        icon = R.drawable.pago
+                    )
                 }
             }
             Column(modifier = Modifier.align(Alignment.TopEnd).padding(16.dp)) {
