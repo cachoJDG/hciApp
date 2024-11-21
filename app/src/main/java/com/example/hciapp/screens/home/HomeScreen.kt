@@ -14,7 +14,6 @@ import com.example.hciapp.components.homeScreen.Balance
 import com.example.hciapp.components.general.BalloonTopBar
 import com.example.hciapp.ui.theme.HciAppTheme
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavController
 import com.example.hciapp.components.homeScreen.WrappedMovementsBox
 import com.example.hciapp.data.model.Movement
 
@@ -22,8 +21,7 @@ import com.example.hciapp.data.model.Movement
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
-    viewModel: HomeViewModel = viewModel(factory = HomeViewModel.provideFactory(LocalContext.current.applicationContext as MyApplication)),
-    navController: NavController
+    viewModel: HomeViewModel = viewModel(factory = HomeViewModel.provideFactory(LocalContext.current.applicationContext as MyApplication))
 ) {
     HciAppTheme {
         Scaffold(
@@ -46,7 +44,7 @@ fun HomeScreen(
 //                ) {
 //                        Text("Login")
 //                    }
-                Balance(navController)
+                Balance()
                 WrappedMovementsBox( movements = listOf(
                     Movement("Compra", "Supermercado", "2023-10-01"),
                     Movement("Venta", "Mercado", "2023-10-02"),

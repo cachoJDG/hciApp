@@ -1,6 +1,5 @@
 package com.example.hciapp
 
-import MovimientosScreen
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
@@ -17,9 +16,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import androidx.window.core.layout.WindowWidthSizeClass
 
 
@@ -33,8 +29,6 @@ fun BalloonWalletApp()
 {
     HciAppTheme {
         val adaptiveInfo = currentWindowAdaptiveInfo()
-        val navController = rememberNavController()
-
         val customNavSuiteType = with(adaptiveInfo)
         {
             if (windowSizeClass.windowWidthSizeClass == WindowWidthSizeClass.MEDIUM) {
@@ -69,22 +63,13 @@ fun BalloonWalletApp()
         ){
             when(currentDestination)
             {
-                AppDestinations.HOME -> HomeScreen(navController = navController)
+                AppDestinations.HOME -> HomeScreen()
                 AppDestinations.CARDS -> QrScreen()
                 AppDestinations.PROFILE -> ProfileScreen()
                 AppDestinations.SETTINGS -> Text("Settings")
 
             }
 
-        }
-        // Set up NavHost to handle screen navigation
-        NavHost(navController = navController, startDestination = "home_screen") {
-            composable("home_screen") {
-                HomeScreen(navController = navController) // Passing the NavController to the HomeScreen
-            }
-            composable("details_screen") {
-                MovimientosScreen()
-            }
         }
     }
 }
