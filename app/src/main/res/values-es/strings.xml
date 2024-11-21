@@ -9,4 +9,8 @@
     <string name="login">Iniciar sesión</string>
     <string name="email">Correo electrónico</string>
     <string name="password">Contraseña</string>
+    <string name="register">Registrarse</string>
+    <string name="balance">Saldo</string>
+    <string name="increase_balance">Depósito</string>
+    <string name="decrease_balance">Transferencia</string>
 </resources>

@@ -29,7 +29,7 @@ fun ButtonTile(
 ) {
     Column(modifier) {
         IconButton(
-            onClick = {  },
+            onClick = onClick,
             modifier = Modifier
                 .size(48.dp)
                 .clip(CircleShape)
@@ -37,7 +37,7 @@ fun ButtonTile(
 
         ) {
             Icon(
-                modifier = Modifier.size(40.dp),
+                modifier = Modifier.size(32.dp),
                 painter = painterResource(id = icon),
                 contentDescription = "Increase balance",
 

@@ -19,7 +19,7 @@ fun ConfigScreen(
 ) {
     val uiState = viewModel.uiState
     Scaffold(
-        topBar = { BalloonTopBar() }
+        topBar = { BalloonTopBar(title = "Config", onBackClick = {}) }
     ) { paddingValues ->
         Column(
             modifier = Modifier

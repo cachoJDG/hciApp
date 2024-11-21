@@ -37,9 +37,10 @@ fun Balance() {
         Box(modifier = Modifier.fillMaxWidth()) {
             Column(
                 modifier = Modifier.padding(16.dp)
+                    .fillMaxWidth()
             ) {
                 Row(
-                    verticalAlignment = Alignment.CenterVertically
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Text(text = if (showBalance) "$$balance" else "****")
                     Spacer(modifier = Modifier.width(8.dp))
@@ -53,8 +54,9 @@ fun Balance() {
                 }
                 Spacer(modifier = Modifier.height(16.dp))
                 Row(
-                    horizontalArrangement = Arrangement.Center,
-                    verticalAlignment = Alignment.CenterVertically
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
                 ) {
 
                     ButtonTile(
@@ -62,17 +64,22 @@ fun Balance() {
                         text = R.string.increase_balance,
                         icon = R.drawable.dinero
                     )
-
                     Spacer(modifier = Modifier.width(16.dp))
                    ButtonTile(
                         onClick = { balance -= 1 },
                         text = R.string.decrease_balance,
                         icon = R.drawable.pago
                     )
+                    Spacer(modifier = Modifier.width(16.dp))
+                    ButtonTile(
+                        onClick = { balance = 0 },
+                        text = R.string.cards,
+                        icon = R.drawable.baseline_credit_card_24
+                    )
                 }
             }
             Column(modifier = Modifier.align(Alignment.TopEnd).padding(16.dp)) {
-                Text(text= "See my movements", textDecoration = TextDecoration.Underline, color = Color(0xFF9503A7))
+                Text(text= "See my movements", textDecoration = TextDecoration.Underline, color = MaterialTheme.colorScheme.primary)
             }
         }
     }
