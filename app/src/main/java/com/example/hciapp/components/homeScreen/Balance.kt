@@ -1,5 +1,6 @@
 package com.example.hciapp.components.homeScreen
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
@@ -17,11 +18,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.hciapp.R
 import com.example.hciapp.components.general.ButtonTile
 
 @Composable
-fun Balance() {
+fun Balance(navController: NavController) {
     var balance by remember { mutableStateOf(0) }
     var showBalance by remember { mutableStateOf(false) }
 
@@ -74,14 +77,21 @@ fun Balance() {
                 }
             }
             Column(modifier = Modifier.align(Alignment.TopEnd).padding(16.dp)) {
-                Text(text= "See my movements", textDecoration = TextDecoration.Underline, color = MaterialTheme.colorScheme.primary)
+                Text(
+                    text= "See my movements",
+                    textDecoration = TextDecoration.Underline,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.clickable {
+                        navController.navigate("movement_screen")
+                    }
+                )
             }
         }
     }
 }
-
-@Preview(showBackground = true)
+@Preview
 @Composable
 fun BalancePreview() {
-    Balance()
+    val navController = rememberNavController()
+    Balance(navController)
 }
