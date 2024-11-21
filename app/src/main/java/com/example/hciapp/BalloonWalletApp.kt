@@ -1,6 +1,7 @@
 package com.example.hciapp
 
 import MovimientosScreen
+import android.annotation.SuppressLint
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
