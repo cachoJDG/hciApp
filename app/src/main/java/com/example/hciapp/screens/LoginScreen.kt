@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -18,14 +19,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.hciapp.R
 import com.example.hciapp.components.LoginForm
+import com.example.hciapp.ui.theme.HciAppTheme
 import com.example.hciapp.ui.theme.Purple80
 
 @Composable
 fun LoginScreen(onLogin: (String, String) -> Unit) {
+HciAppTheme {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = Color(0xFFE1BEE7))
+            .background(color = MaterialTheme.colorScheme.background)
     ) {
         Column(
             modifier = Modifier
@@ -63,7 +66,7 @@ fun LoginScreen(onLogin: (String, String) -> Unit) {
         }
     }
 }
-
+}
 @Preview
 @Composable
 fun LoginScreenPreview() {

@@ -1,4 +1,4 @@
-package com.example.hciapp.screens.config
+package com.example.hciapp.screens.profile
 
 import android.util.Log
 import androidx.compose.runtime.getValue
@@ -13,22 +13,17 @@ import com.example.hciapp.data.DataSourceException
 import com.example.hciapp.data.model.User
 import com.example.hciapp.data.repository.UserRepository
 import com.example.hciapp.data.repository.WalletRepository
-import com.example.hciapp.screens.home.HomeUiState
-import com.example.hciapp.screens.home.HomeViewModel
-import com.example.hciapp.screens.home.HomeViewModel.Companion.TAG
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import java.sql.Date
-import java.text.SimpleDateFormat
 
 
-class ConfigViewModel(
+class ProfileViewModel(
     sessionManager: SessionManager,
     private val userRepository: UserRepository,
     private val walletRepository: WalletRepository
 ) : ViewModel()
 {
-    var uiState by mutableStateOf(ConfigUiState(isAuthenticated = sessionManager.loadAuthToken() != null))
+    var uiState by mutableStateOf(ProfileUiState(isAuthenticated = sessionManager.loadAuthToken() != null))
         private set
 
     fun getCurrentUser() = runOnViewModelScope(
@@ -51,7 +46,7 @@ class ConfigViewModel(
 
     private fun <R> runOnViewModelScope(
         block: suspend () -> R,
-        updateState: (ConfigUiState, R) -> ConfigUiState
+        updateState: (ProfileUiState, R) -> ProfileUiState
     ): Job = viewModelScope.launch {
         uiState = uiState.copy(isFetching = true, error = null)
         runCatching {
@@ -80,7 +75,7 @@ class ConfigViewModel(
         ): ViewModelProvider.Factory = object : ViewModelProvider.Factory {
             @Suppress("UNCHECKED_CAST")
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                return ConfigViewModel(
+                return ProfileViewModel(
                     application.sessionManager,
                     application.userRepository,
                     application.walletRepository) as T

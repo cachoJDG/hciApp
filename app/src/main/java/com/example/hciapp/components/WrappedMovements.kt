@@ -38,7 +38,7 @@ fun WrappedMovementsBox(movements: List<Movement>) {
 }
 
 @Composable
-fun RecentMovementsBox(movements: List<Movement>) {
+fun RecentMovementsBox(movements: List<Movement>) { 
     val recentMovements = movements.takeLast(3).reversed()
             MovimientosList(recentMovements, Modifier)
 }

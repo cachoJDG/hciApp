@@ -1,11 +1,9 @@
-package com.example.hciapp.screens.config
-
+package com.example.hciapp.screens.profile
 
 import com.example.hciapp.data.model.User
 import com.example.hciapp.data.model.WalletDetails
 
-
-data class ConfigUiState(
+data class ProfileUiState(
     val isFetching: Boolean = false,
     val error: Error? = null,
     val currentUser: User? = null,
@@ -13,4 +11,4 @@ data class ConfigUiState(
     val isAuthenticated: Boolean = false,
 )
 
-val ConfigUiState.canGetCurrentUser: Boolean get() = isAuthenticated
+val ProfileUiState.canGetCurrentUser: Boolean get() = isAuthenticated

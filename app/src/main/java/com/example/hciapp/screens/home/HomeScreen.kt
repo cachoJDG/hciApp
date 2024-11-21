@@ -18,7 +18,8 @@ import com.example.hciapp.components.ContentCard
 import com.example.hciapp.components.LoginForm
 import com.example.hciapp.ui.theme.HciAppTheme
 import androidx.lifecycle.viewmodel.compose.viewModel
-
+import com.example.hciapp.components.WrappedMovementsBox
+import com.example.hciapp.data.model.Movement
 
 
 @Composable
@@ -30,7 +31,7 @@ fun HomeScreen(
         Scaffold(
             topBar = { BalloonTopBar(title = "Home", onBackClick = {}, arrowBack = false) },
             contentColor = MaterialTheme.colorScheme.primary,
-            containerColor =  MaterialTheme.colorScheme.primary,
+            containerColor =  MaterialTheme.colorScheme.background,
 
         ) { padding ->
 
@@ -47,20 +48,14 @@ fun HomeScreen(
 //                ) {
 //                        Text("Login")
 //                    }
-
-
-
                 Balance()
-
-                ContentCard(
-                    title = "Welcome to Balloon",
-                ) {
-                    LoginForm { email, password ->
-                        // Handle login
-                    }
-                }
-
-
+                WrappedMovementsBox( movements = listOf(
+                    Movement("Compra", "Supermercado", "2023-10-01"),
+                    Movement("Venta", "Mercado", "2023-10-02"),
+                    Movement("Transferencia", "Banco", "2023-10-03"),
+                    Movement("Compra", "Supermercado", "2023-10-01"),
+                    Movement("Venta", "Mercado", "2023-10-02")
+                ))
             }
         }
     }

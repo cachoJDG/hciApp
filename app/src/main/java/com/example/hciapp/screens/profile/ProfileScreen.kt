@@ -1,4 +1,4 @@
-package com.example.hciapp.screens.config
+package com.example.hciapp.screens.profile
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
@@ -10,16 +10,16 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.hciapp.MyApplication
 import com.example.hciapp.components.BalloonTopBar
 import com.example.hciapp.components.UserProfileConfig
-import com.example.hciapp.screens.home.HomeViewModel
 import java.util.Date
 
 @Composable
-fun ConfigScreen(
-    viewModel: ConfigViewModel = viewModel(factory = ConfigViewModel.provideFactory(LocalContext.current.applicationContext as MyApplication))
+fun ProfileScreen(
+    viewModel: ProfileViewModel = viewModel(factory = ProfileViewModel.provideFactory(LocalContext.current.applicationContext as MyApplication))
 ) {
     val uiState = viewModel.uiState
     Scaffold(
-        topBar = { BalloonTopBar(title = "Config", onBackClick = {}) }
+        topBar = { BalloonTopBar(title = "Config", onBackClick = {}) },
+        containerColor = MaterialTheme.colorScheme.background,
     ) { paddingValues ->
         Column(
             modifier = Modifier
@@ -45,8 +45,8 @@ fun ConfigScreen(
     }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
-fun ConfigScreenPreview() {
-    ConfigScreen()
+fun ProfileScreenPreview() {
+    ProfileScreen()
 }
