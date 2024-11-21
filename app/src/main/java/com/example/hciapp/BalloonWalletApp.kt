@@ -1,6 +1,8 @@
 package com.example.hciapp
 
+import MovimientosScreen
 import androidx.compose.material3.Icon
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffold
@@ -16,7 +18,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import androidx.window.core.layout.WindowWidthSizeClass
+import com.example.hciapp.components.general.BalloonTopBar
 
 
 import com.example.hciapp.navigation.AppDestinations
@@ -26,52 +32,19 @@ import com.example.hciapp.screens.profile.ProfileScreen
 import com.example.hciapp.screens.home.HomeScreen
 
 @Composable
-fun BalloonWalletApp()
-{
-    HciAppTheme {
-        val adaptiveInfo = currentWindowAdaptiveInfo()
-        val customNavSuiteType = with(adaptiveInfo)
-        {
-            if (windowSizeClass.windowWidthSizeClass == WindowWidthSizeClass.MEDIUM) {
-                NavigationSuiteType.NavigationRail
+fun BalloonWalletApp() {
+    // Set up the NavController for navigation
+    val navController = rememberNavController()
+    // Scaffold for the overall layout, including the top bar and bottom bar
+        // NavHost to define the navigation flow
+        NavHost(navController = navController, startDestination = "home_screen") {
+            composable("home_screen") {
+                HomeScreen(navController = navController)  // Home screen
             }
-            else {
-                NavigationSuiteType.NavigationBar
+            composable("movimientos") {
+                MovimientosScreen()  // Details screen
             }
-
         }
-        var currentDestination by rememberSaveable { mutableStateOf(AppDestinations.HOME) }
-        NavigationSuiteScaffold(
-            containerColor = Color.Blue,
-            navigationSuiteItems = {
-                AppDestinations.entries.forEach{
-                    item(
-                        icon = {
-                            Icon(
-                                painterResource( it.icon),
-                                contentDescription = stringResource(it.contentDescription)
-                            )
-                        },
-                        label = { Text(stringResource(it.label)) },
-
-                        selected = currentDestination == it,
-                        onClick = { currentDestination = it }
-                    )
-                }
-            },
-            contentColor = Color.Transparent,
-            layoutType = NavigationSuiteScaffoldDefaults.calculateFromAdaptiveInfo(adaptiveInfo)
-        ){
-            when(currentDestination)
-            {
-                AppDestinations.HOME -> HomeScreen()
-                AppDestinations.CARDS -> QrScreen()
-                AppDestinations.PROFILE -> ProfileScreen()
-                AppDestinations.SETTINGS -> ConfigScreen()
-            }
-
-        }
-    }
 }
 
 @Preview(device = "spec:width=411dp,height=891dp")
