@@ -4,15 +4,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.hciapp.components.general.BalloonTopBar
 import com.example.hciapp.components.movements.MovimientosList
 import com.example.hciapp.data.model.Movement
 
 @Composable
-fun MovimientosScreen() {
+fun MovimientosScreen(navController: NavController) {
     Scaffold(
         topBar = {
-            BalloonTopBar(title = "Movimientos", onBackClick = {})
+            BalloonTopBar(title = "Movimientos", onBackClick = {navController.popBackStack()})
         }
     ) { paddingValues ->
         val movimientos = listOf(
@@ -33,10 +34,4 @@ fun MovimientosScreen() {
             )
         }
     }
-}
-
-@Preview
-@Composable
-fun MovimientosScreenPreview() {
-    MovimientosScreen()
 }

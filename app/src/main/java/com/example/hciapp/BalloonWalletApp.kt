@@ -43,7 +43,7 @@ fun BalloonWalletApp() {
                 HomeScreen(navController = navController)  // Home screen
             }
             composable("movimientos") {
-                MovimientosScreen()  // Details screen
+                MovimientosScreen(navController)
             }
         }
 }
