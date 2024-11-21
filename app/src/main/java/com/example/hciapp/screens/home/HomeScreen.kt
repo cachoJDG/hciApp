@@ -28,7 +28,7 @@ fun HomeScreen(
 ) {
     HciAppTheme {
         Scaffold(
-            topBar = { BalloonTopBar(title = "Home", onBackClick = {}) },
+            topBar = { BalloonTopBar(title = "Home", onBackClick = {}, arrowBack = false) },
             contentColor = MaterialTheme.colorScheme.primary,
             containerColor =  MaterialTheme.colorScheme.primary,
 

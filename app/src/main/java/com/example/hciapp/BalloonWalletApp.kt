@@ -64,8 +64,8 @@ fun BalloonWalletApp()
             when(currentDestination)
             {
                 AppDestinations.HOME -> HomeScreen()
-                //AppDestinations.HOME -> ConfigScreen()
                 AppDestinations.CARDS -> QrScreen()
+                AppDestinations.PROFILE -> ConfigScreen()
             }
 
         }

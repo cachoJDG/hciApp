@@ -12,4 +12,5 @@
     <string name="balance">Balance</string>
     <string name="increase_balance">Deposit</string>
     <string name="decrease_balance">Transfer</string>
+    <string name="settings">Settings</string>
 </resources>

@@ -15,20 +15,28 @@ import com.example.hciapp.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BalloonTopBar(title: String, onBackClick: () -> Unit, modifier: Modifier = Modifier) {
-    TopAppBar(
-        title = { Text(text = title) },
-        navigationIcon = {
+fun BalloonTopBar(title: String, onBackClick: () -> Unit, modifier: Modifier = Modifier, arrowBack: Boolean = true) {
+    val navigationIcon: @Composable (() -> Unit)? = if (arrowBack) {
+        {
             IconButton(onClick = onBackClick) {
                 Icon(
                     painter = painterResource(id = R.drawable.baseline_arrow_back_24),
                     contentDescription = stringResource(id = R.string.cards)
                 )
             }
-        },
-        colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = colorScheme.primary
-        ),
-        modifier = modifier
-    )
+        }
+    } else {
+        null
+    }
+
+    if (navigationIcon != null) {
+        TopAppBar(
+            title = { Text(text = title) },
+            navigationIcon = navigationIcon,
+            colors = TopAppBarDefaults.topAppBarColors(
+                containerColor = colorScheme.primary
+            ),
+            modifier = modifier
+        )
+    }
 }
