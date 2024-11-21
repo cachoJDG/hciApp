@@ -66,6 +66,8 @@ fun BalloonWalletApp()
                 AppDestinations.HOME -> HomeScreen()
                 AppDestinations.CARDS -> QrScreen()
                 AppDestinations.PROFILE -> ProfileScreen()
+                AppDestinations.SETTINGS -> Text("Settings")
+
             }
 
         }

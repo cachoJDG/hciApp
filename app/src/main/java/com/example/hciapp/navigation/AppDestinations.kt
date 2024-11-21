@@ -21,6 +21,7 @@ enum class AppDestinations(
 {
     HOME(label = R.string.home, icon = R.drawable.home, contentDescription = R.string.home),
     CARDS(label = R.string.cards, icon = R.drawable.qr_code, contentDescription = R.string.cards),
-    PROFILE(label = R.string.profile, icon = R.drawable.baseline_settings_24, contentDescription = R.string.settings),
+    PROFILE(label = R.string.profile, icon = R.drawable.baseline_person_24, contentDescription = R.string.profile),
+    SETTINGS(label = R.string.settings, icon = R.drawable.baseline_settings_24, contentDescription = R.string.settings),
    // CARDS(label = R.string.cards, icon = Icons.Default.Call, contentDescription = R.string.cards),
 }
