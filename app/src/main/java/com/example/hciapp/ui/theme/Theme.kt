@@ -12,6 +12,7 @@ private val DarkColorScheme = darkColorScheme(
     secondary = PurpleGrey80,
     tertiary = Pink80,
     background = Color(0xFFE795EA),
+    surface = Color(0xFFD080DC),
 )
 
 private val LightColorScheme = lightColorScheme(

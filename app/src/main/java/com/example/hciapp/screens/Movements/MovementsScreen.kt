@@ -4,9 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.hciapp.components.BalloonTopBar
-import com.example.hciapp.components.Movimiento
+import com.example.hciapp.data.model.Movement
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MovimientosScreen() {
     Scaffold(
@@ -15,9 +14,9 @@ fun MovimientosScreen() {
         }
     ) { paddingValues ->
         val movimientos = listOf(
-            Movimiento("Compra", "Supermercado", "2023-10-01"),
-            Movimiento("Venta", "Mercado", "2023-10-02"),
-            Movimiento("Transferencia", "Banco", "2023-10-03")
+            Movement("Compra", "Supermercado", "2023-10-01"),
+            Movement("Venta", "Mercado", "2023-10-02"),
+            Movement("Transferencia", "Banco", "2023-10-03")
         )
 
         MovimientosList(
