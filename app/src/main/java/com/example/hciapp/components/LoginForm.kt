@@ -44,6 +44,13 @@ fun LoginForm(onLogin: (String, String) -> Unit) {
             .fillMaxWidth()
             .padding(16.dp)
     ) {
+        Text(
+            text = stringResource(R.string.login),
+            style = MaterialTheme.typography.titleLarge,
+            modifier = Modifier.padding(bottom = 16.dp),
+            color = MaterialTheme.colorScheme.primary
+        )
+
         TextField(
             value = email,
             onValueChange = { email = it },
