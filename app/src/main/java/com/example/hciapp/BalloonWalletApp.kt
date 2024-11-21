@@ -29,61 +29,79 @@ import com.example.hciapp.screens.profile.ProfileScreen
 import com.example.hciapp.screens.home.HomeScreen
 
 @Composable
-fun BalloonWalletApp()
-{
+fun BalloonWalletApp() {
     HciAppTheme {
         val adaptiveInfo = currentWindowAdaptiveInfo()
         val navController = rememberNavController()
 
-        val customNavSuiteType = with(adaptiveInfo)
-        {
+        // Set the navigation type based on window size
+        val customNavSuiteType = with(adaptiveInfo) {
             if (windowSizeClass.windowWidthSizeClass == WindowWidthSizeClass.MEDIUM) {
                 NavigationSuiteType.NavigationRail
-            }
-            else {
+            } else {
                 NavigationSuiteType.NavigationBar
             }
-
         }
+
         var currentDestination by rememberSaveable { mutableStateOf(AppDestinations.HOME) }
+
+        // Wrap the NavigationSuiteScaffold
         NavigationSuiteScaffold(
             containerColor = Color.Blue,
             navigationSuiteItems = {
-                AppDestinations.entries.forEach{
+                // Set up items in the navigation bar
+                AppDestinations.entries.forEach {
                     item(
                         icon = {
                             Icon(
-                                painterResource( it.icon),
+                                painterResource(it.icon),
                                 contentDescription = stringResource(it.contentDescription)
                             )
                         },
                         label = { Text(stringResource(it.label)) },
-
                         selected = currentDestination == it,
-                        onClick = { currentDestination = it }
+                        onClick = {
+                            // Update current destination and navigate
+                            currentDestination = it
+                            // Optionally, navigate to the respective screen in NavHost
+                            when (it) {
+                                AppDestinations.HOME -> navController.navigate("home_screen")
+                                AppDestinations.CARDS -> navController.navigate("qr_screen")
+                                AppDestinations.PROFILE -> navController.navigate("profile_screen")
+                                AppDestinations.SETTINGS -> navController.navigate("settings_screen")
+                            }
+                        }
                     )
                 }
             },
             contentColor = Color.Transparent,
             layoutType = NavigationSuiteScaffoldDefaults.calculateFromAdaptiveInfo(adaptiveInfo)
-        ){
-            when(currentDestination)
-            {
+        ) {
+            // Content area where screens are displayed based on current destination
+            when (currentDestination) {
                 AppDestinations.HOME -> HomeScreen(navController = navController)
                 AppDestinations.CARDS -> QrScreen()
                 AppDestinations.PROFILE -> ProfileScreen()
                 AppDestinations.SETTINGS -> Text("Settings")
-
             }
-
         }
-        // Set up NavHost to handle screen navigation
+
+        // Set up NavHost for handling specific navigation in the app (for screen transitions)
         NavHost(navController = navController, startDestination = "home_screen") {
             composable("home_screen") {
-                HomeScreen(navController = navController) // Passing the NavController to the HomeScreen
+                HomeScreen(navController = navController)
             }
             composable("details_screen") {
                 MovimientosScreen()
+            }
+            composable("qr_screen") {
+                QrScreen() // Add the QR screen
+            }
+            composable("profile_screen") {
+                ProfileScreen() // Profile screen
+            }
+            composable("settings_screen") {
+                Text("Settings") // You can replace this with the actual settings screen
             }
         }
     }
