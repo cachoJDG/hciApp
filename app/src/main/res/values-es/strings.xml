@@ -2,9 +2,8 @@
 <resources>
     <string name="app_name">Balloon Wallet</string>
     <string name="home">casa</string>
-    <string name="cards">tarjetas</string>
     <string name="HeaderTitle">GloboApp</string>
-    <string name="qr">buscar</string>
+    <string name="qr">QR</string>
     <string name="profile">perfil</string>
     <string name="login">Iniciar sesión</string>
     <string name="email">Correo electrónico</string>
@@ -14,4 +13,5 @@
     <string name="increase_balance">Depósito</string>
     <string name="decrease_balance">Transferencia</string>
     <string name="settings">Configuración</string>
+    <string name="cards">Tarjetas</string>
 </resources>
