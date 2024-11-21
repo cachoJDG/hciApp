@@ -1,4 +1,4 @@
-package com.example.hciapp.components
+package com.example.hciapp.components.general
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes

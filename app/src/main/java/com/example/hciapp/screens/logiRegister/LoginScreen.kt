@@ -16,7 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.hciapp.R
-import com.example.hciapp.components.LoginForm
+import com.example.hciapp.components.loginRegister.LoginForm
 import com.example.hciapp.ui.theme.HciAppTheme
 
 @Composable

@@ -8,8 +8,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.hciapp.MyApplication
-import com.example.hciapp.components.BalloonTopBar
-import com.example.hciapp.components.UserProfileConfig
+import com.example.hciapp.components.general.BalloonTopBar
+import com.example.hciapp.components.profile.UserProfileConfig
 import java.util.Date
 
 @Composable

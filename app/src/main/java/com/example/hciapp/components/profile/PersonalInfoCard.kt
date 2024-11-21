@@ -1,4 +1,4 @@
-package com.example.hciapp.components
+package com.example.hciapp.components.profile
 
 import java.text.SimpleDateFormat
 import androidx.compose.foundation.layout.*
@@ -8,10 +8,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import java.text.DateFormat
 
 import java.util.Date
-import java.util.Locale
 
 @Composable
 fun UserProfileConfig(

@@ -1,6 +1,5 @@
-package com.example.hciapp.components
+package com.example.hciapp.components.loginRegister
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
