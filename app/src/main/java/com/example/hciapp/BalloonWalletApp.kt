@@ -21,6 +21,7 @@ import androidx.window.core.layout.WindowWidthSizeClass
 
 import com.example.hciapp.navigation.AppDestinations
 import com.example.hciapp.screens.QrScreen
+import com.example.hciapp.screens.config.ConfigScreen
 import com.example.hciapp.screens.profile.ProfileScreen
 import com.example.hciapp.screens.home.HomeScreen
 
@@ -66,8 +67,7 @@ fun BalloonWalletApp()
                 AppDestinations.HOME -> HomeScreen()
                 AppDestinations.CARDS -> QrScreen()
                 AppDestinations.PROFILE -> ProfileScreen()
-                AppDestinations.SETTINGS -> Text("Settings")
-
+                AppDestinations.SETTINGS -> ConfigScreen()
             }
 
         }

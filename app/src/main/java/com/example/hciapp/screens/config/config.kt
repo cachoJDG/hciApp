@@ -1,4 +1,4 @@
-package com.example.hciapp.components.config
+package com.example.hciapp.screens.config
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
